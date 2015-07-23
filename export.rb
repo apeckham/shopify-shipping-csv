@@ -10,7 +10,7 @@ CSV do |csv|
   ShopifyAPI::Order.find_all(status: :any) do |order|
     order.fulfillments.each do |fulfillment|
       fulfillment.tracking_numbers.each do |tracking_number|
-        csv << [order.order_number, tracking_number, order.order_number]
+        csv << [order.order_number, tracking_number, "##{order.order_number}"]
       end
     end
   end
